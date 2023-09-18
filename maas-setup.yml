@@ -4,7 +4,7 @@
   connection: local
   become: true
 
-  tasks:
+  pre_tasks:
     # =========================
     # Pre-install checks
     # ==========================
@@ -21,6 +21,57 @@
       ansible.builtin.fail:
         msg: 'Currently only Ubuntu 20.04 and Ubuntu 22.04 are supported by ansible scripting.'
       when: OsDistribution.stdout != 'Ubuntu'
+
+    - name: 'Validate inventory structure, check for non empty group maas_regiond'
+      ansible.builtin.fail:
+        msg: 'Inventory validation failed. No hosts in maas_regiond group'
+      when: (groups["maas_regiond"] is not defined) or
+            (groups["maas_regiond"] | length == 0) or
+            (hostvars[groups.maas_regiond[0]] is not defined)
+
+    - name: Set iptables variables
+      ansible.builtin.set_fact:
+        default_interface: "{{ ansible_default_ipv4.interface  }}"
+        default_ip: "{{ ansible_default_ipv4.address }}"
+
+    - name: 'Validate inventory variables, check CREATEADMIN mandatory variables'
+      ansible.builtin.fail:
+        msg: 'Inventory variables validation failed. Missing CREATEADMIN groups var.'
+      when: (hostvars[groups.maas_regiond[0]].MAAS_ADMIN_USER is not defined) or
+            (hostvars[groups.maas_regiond[0]].MAAS_ADMIN_PASSWD is not defined) or
+            (hostvars[groups.maas_regiond[0]].MAAS_ADMIN_EMAIL is not defined)
+
+    - name: 'Validate inventory variables, check MAAS enpoint mandatory variables'
+      ansible.builtin.fail:
+        msg: 'Inventory variables validation failed. Missing values, MASS_WEBGUI_URL can not be generated.'
+      when: 
+        - hostvars[groups.maas_regiond[0]].MASS_WEBGUI_URL is not defined 
+        - hostvars[groups.maas_regiond[0]].MASS_WEBGUI_AUTHORITY is not defined
+        - (hostvars[groups.maas_regiond[0]].MAAS_WEBGUI_PORT is not defined or
+          hostvars[groups.maas_regiond[0]].MAAS_WEBGUI_SCHEME is not defined or
+          hostvars[groups.maas_regiond[0]].MAAS_WEBGUI_PATH is not defined)
+
+    - name: 'Set MAAS_ENDPOINT_URL based on MASS_WEBGUI_URL variable if possible'
+      ansible.builtin.set_fact:
+        MAAS_ENDPOINT_URL: "{{ hostvars[groups.maas_regiond[0]].MASS_WEBGUI_URL }}"
+      when:
+        - hostvars[groups.maas_regiond[0]].MASS_WEBGUI_URL is defined
+
+    - name: 'Set MAAS_ENDPOINT_URL based on MASS_WEBGUI_AUTHORITY variable if possible'
+      ansible.builtin.set_fact:
+        MAAS_ENDPOINT_URL: "{{ hostvars[groups.maas_regiond[0]].MAAS_WEBGUI_SCHEME }}://{{ hostvars[groups.maas_regiond[0]].MASS_WEBGUI_AUTHORITY }}/{{ hostvars[groups.maas_regiond[0]].MAAS_WEBGUI_PATH }}"
+      when:
+        - hostvars[groups.maas_regiond[0]].MASS_WEBGUI_URL is not defined 
+        - hostvars[groups.maas_regiond[0]].MASS_WEBGUI_AUTHORITY is defined
+
+    - name: 'Set MASS_WEBGUI_URL variable if possible'
+      ansible.builtin.set_fact:
+        MAAS_ENDPOINT_URL: "{{ hostvars[groups.maas_regiond[0]].MAAS_WEBGUI_SCHEME }}://{{ hostvars[groups.maas_regiond[0]].MAAS_WEBGUI_DOMAIN | default(default_ip) }}:{{ hostvars[groups.maas_regiond[0]].MAAS_WEBGUI_PORT }}/{{ hostvars[groups.maas_regiond[0]].MAAS_WEBGUI_PATH }}"
+      when:
+        - hostvars[groups.maas_regiond[0]].MASS_WEBGUI_URL is not defined 
+        - hostvars[groups.maas_regiond[0]].MASS_WEBGUI_AUTHORITY is not defined
+
+  tasks:
     # =========================
     # Update the server 
     # ==========================
@@ -38,10 +89,6 @@
     # Intall the MAAS packages
     # =========================
     #
-    - name: Set iptables variables
-      ansible.builtin.set_fact:
-        default_interface: "{{ ansible_default_ipv4.interface  }}"
-        default_ip: "{{ ansible_default_ipv4.address }}"
 
     - name: Install MAAS snap package
       ansible.builtin.command: snap install --channel=latest/stable lxd
@@ -57,10 +104,10 @@
 
     - name: Initializing MAAS setup
       ansible.builtin.debug:
-        msg: maas init region+rack --database-uri maas-test-db:/// --maas-url http://{{ default_ip }}:5240/MAAS
+        msg: maas init region+rack --database-uri maas-test-db:/// --maas-url {{ MAAS_ENDPOINT_URL }}
 
     - name: Init MAAS
-      ansible.builtin.command: maas init region+rack --database-uri maas-test-db:/// --maas-url http://{{ default_ip }}:5240/MAAS
+      ansible.builtin.command: maas init region+rack --database-uri maas-test-db:/// --maas-url {{ MAAS_ENDPOINT_URL }}
     # =========================
     # Setup networking
     # =========================
@@ -79,6 +126,7 @@
         echo 'iptables-persistent iptables-persistent/autosave_v4 boolean true' >  iptables-persistent-autosave;
         echo 'iptables-persistent iptables-persistent/autosave_v6 boolean true' >> iptables-persistent-autosave;
         debconf-set-selections iptables-persistent-autosave;
+        rm -f iptables-persistent-autosave;
       register: IP_TABLES_PERSISTENT
       failed_when: IP_TABLES_PERSISTENT.rc != 0
     # =========================
@@ -99,7 +147,14 @@
       until: AptReqReturnCode is success
       retries: 10
       delay: 10
-      
+
+    - name: Finish MAAS initialization by adding admin user.
+      ansible.builtin.command: maas createadmin --username {{ hostvars[groups.maas_regiond[0]].MAAS_ADMIN_USER }} --password {{ hostvars[groups.maas_regiond[0]].MAAS_ADMIN_PASSWD }} --email {{ hostvars[groups.maas_regiond[0]].MAAS_ADMIN_EMAIL }}
+      no_log: true
+
+    - name: Generate SSH key-pair for MAAS admin user.
+      ansible.builtin.command: ssh-keygen -t ed25519 -b 4096 -f /root/.ssh/ssh_maas_regiond_ed25519 -N ''
+
     - name: Install optional apt packages and tools
       ansible.builtin.apt:
         name:
@@ -110,6 +165,7 @@
           - neofetch
           - figlet 
           - toilet
+          - traceroute
         state: present
         update_cache: true
       register: AptOptReturnCode
@@ -120,7 +176,7 @@
       when: MINIMAL_INSTALL is not defined
 
     - name: Add the hostname to the message of the day
-      ansible.builtin.shell: 'toilet -f slant $(hostname) -F metal > /etc/motd'
+      ansible.builtin.command: 'toilet -f slant $(hostname) -F metal > /etc/motd'
       register: MOTD
       failed_when: false
       when:

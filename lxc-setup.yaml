@@ -1,0 +1,71 @@
+---
+- name: 'Setup lxc and lxd with GUI for MAAS integration'
+  hosts: localhost
+  connection: local
+  become: true
+
+  tasks:
+  
+    - name: 'Update apt cache and purge old lxd and lxc'
+      ansible.builtin.apt:
+        name:
+          - "*lxd*"
+          - "*lxc*"
+        state: absent
+        purge: true
+        autoremove: true
+        update_cache: true
+        cache_valid_time: 86400 # Once day between updates
+      register: AptReturnCode
+      until: AptReturnCode is success
+      retries: 10
+      delay: 10
+
+    - name: 'Update apt cache and install lxd'
+      ansible.builtin.apt:
+        name:
+          - lxd-installer
+          - lxc
+        state: present
+        update_cache: true
+        cache_valid_time: 86400 # Once day between updates
+      register: AptReturnCode
+      until: AptReturnCode is success
+      retries: 10
+      delay: 10
+
+    - name: Enable and use LXC Bridge
+      ansible.builtin.lineinfile:
+        path: /etc/default/lxc-net
+        regexp: '^USE_LXC_BRIDGE='
+        line: USE_LXC_BRIDGE="true"
+
+    - name: Lxd initialization and network config
+      ansible.builtin.shell: |
+        adduser {{ ansible_user | default("ubuntu") }} lxd
+        adduser root lxd
+        newgrp lxd
+
+    - name: Lxd initialization and network config
+      ansible.builtin.shell: |
+        lxd init --auto
+        lxc network delete lxdbr0
+        lxc network create lxdbr0 ipv6.address=none ipv4.address=10.0.4.1/24 ipv4.nat=true
+
+    - name: Lxc MAAS network-side configuration
+      ansible.builtin.shell: |
+        lxc network set lxdbr0 dns.mode=none
+        lxc network set lxdbr0 ipv4.dhcp=false
+        lxc network set lxdbr0 ipv6.dhcp=false
+
+    - name: Lxc MAAS network-side configuration
+      ansible.builtin.shell: |
+        ufw allow in on lxdbr0 comment 'lxdbr0 for LXD'
+        ufw route allow in on lxdbr0 comment 'lxdbr0 for LXD'
+        ufw route allow out on lxdbr0 comment 'lxdbr0 for LXD'
+
+    - name: Start lxc-net using systemctl
+      ansible.builtin.command: systemctl start lxc-net
+
+  handlers:
+

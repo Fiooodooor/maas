@@ -1,0 +1,66 @@
+all: # keys must be unique, i.e. only one 'hosts' per group
+  hosts:
+    primary_node:
+      ip: "192.168.0.3"
+      ansible_user: "ubuntu"
+      ansible_password: "intel123"
+      ansible_port: "22"
+      ansible_host: "maas.nex-vis.igk.intel.com"
+    primary_postgresql:
+      ip: "192.168.0.4"
+      ansible_user: "ubuntu"
+      ansible_password: "intel123"
+      ansible_port: "22"
+      ansible_host: "sql.maas.nex-vis.igk.intel.com"
+    node_1:
+      ip: "192.168.1.4"
+      ansible_user: "ubuntu"
+      ansible_password: "intel123"
+      ansible_port: "22"
+      ansible_host: "node1.maas.nex-vis.igk.intel.com"
+
+  vars:
+    group_all_var: value
+  
+  children:   # key order does not matter, indentation does
+    maas_rackd:
+      hosts:
+        primary_node
+
+    maas_nodes:
+      hosts:
+        node_1
+
+    maas_regiond:
+      hosts:
+        primary_node
+      vars: 
+        # MAAS CREATEADMIN:
+        MAAS_ADMIN_USER: sysvisol
+        MAAS_ADMIN_PASSWD: sysvisol
+        MAAS_ADMIN_EMAIL: milosz.linkiewicz@intel.com
+        # MAAS WEBGUI ENDPOINT:
+        MAAS_WEBGUI_SCHEME: "http"
+        MAAS_WEBGUI_DOMAIN: "172.22.192.7"
+        MAAS_WEBGUI_PORT: "5240"
+        MAAS_WEBGUI_PATH: "MAAS"
+        # MASS WEBGUI AUTHORITY:
+        MASS_WEBGUI_AUTHORITY: "{{ MAAS_WEBGUI_DOMAIN }}:{{ MAAS_WEBGUI_PORT }}"
+        # MASS WEBGUI URL:
+        MASS_WEBGUI_URL: "{{ MAAS_WEBGUI_SCHEME }}://{{ MASS_WEBGUI_AUTHORITY }}/{{ MAAS_WEBGUI_PATH }}"
+
+    maas_database:
+      hosts:
+        primary_postgresql
+      vars:       
+        # POSTGRESQL CREATE USER
+        MAAS_DB_ADMIN_USER: 
+        MAAS_DB_ADMIN_PASSWD:
+        # POSTGRESQL createdb
+        MAAS_DB_DATABASE_NAME: 
+        MAAS_DB_ENDPOINT_DOMAIN: 
+        MAAS_DB_ENDPOINT_PORT: 
+        # POSTGRESQL ENDPOINT AUTHORITY:
+        MAAS_DB_ENDPOINT_AUTHORITY: "{{ MAAS_DB_ENDPOINT_DOMAIN }}:{{ MAAS_DB_ENDPOINT_PORT }}"
+        # POSTGRESQL ENDPOINT URL:
+        MAAS_DB_ENDPOINT_URL: "postgres://{{ MAAS_DB_ADMIN_USER }}:{{ MAAS_DB_ADMIN_PASSWD }}@{{ MAAS_DB_ENDPOINT_AUTHORITY }}/{{ MAAS_DB_DATABASE_NAME }}"

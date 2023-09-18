@@ -4,6 +4,12 @@ set -ex
 
 SCRIPT_DIRECTORY="$(readlink -f "$(dirname "${BASH_SOURCE[0]}")")"
 
+DEBIAN_FRONTEND=noninteractive
+LC_ALL='C.UTF-8'
+TZ='Europe/Helsinki'
+# /bin/sh -c ln -snf /usr/share/zoneinfo/${TZ} /etc/localtime;
+# echo ${TZ} > /etc/timezone
+
 function check_is_sudo_or_exit() 
 {
     if [[ "$(id -u "${USER}")" == "0" ]]; then
@@ -19,7 +25,7 @@ function check_upgrade_apt_packages()
     sudo apt update
     sudo apt upgrade -y
     sudo apt satisfy -y "python3 (>=3.9), python3-dev (>= 3.9), python3-pip"
-    sudo apt install -y libevent-dev
+    sudo apt install -y libevent-dev openssh-server
 }
 
 function check_add_userspace_bin_path()

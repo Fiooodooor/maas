@@ -1,0 +1,1329 @@
+{
+    "grub-efi": {
+      "arm64": {
+        "generic": {
+          "bootloader": {
+            "uefi": {
+              "stable": {
+                "bootloader-type": "uefi",
+                "content_id": "maas:v2:download",
+                "path": "grub-efi/arm64/generic/uefi/20230222.0/shim-signed.tar.xz",
+                "product_name": "maas:boot:grub-efi:arm64:generic:uefi",
+                "version_name": "20230222.0"
+              }
+            }
+          }
+        }
+      }
+    },
+    "grub-efi-signed": {
+      "amd64": {
+        "generic": {
+          "bootloader": {
+            "uefi": {
+              "stable": {
+                "bootloader-type": "uefi",
+                "content_id": "maas:v2:download",
+                "path": "grub-efi-signed/amd64/generic/uefi/20230222.0/shim-signed.tar.xz",
+                "product_name": "maas:boot:grub-efi-signed:amd64:generic:uefi",
+                "version_name": "20230222.0"
+              }
+            }
+          }
+        }
+      }
+    },
+    "grub-ieee1275": {
+      "ppc64el": {
+        "generic": {
+          "bootloader": {
+            "open-firmware": {
+              "stable": {
+                "bootloader-type": "open-firmware",
+                "content_id": "maas:v2:download",
+                "path": "grub-ieee1275/ppc64el/generic/open-firmware/20210509.0/grub2.tar.xz",
+                "product_name": "maas:boot:grub-ieee1275:ppc64el:generic:open-firmware",
+                "version_name": "20210509.0"
+              }
+            }
+          }
+        }
+      }
+    },
+    "pxelinux": {
+      "i386": {
+        "generic": {
+          "bootloader": {
+            "pxe": {
+              "stable": {
+                "bootloader-type": "pxe",
+                "content_id": "maas:v2:download",
+                "path": "pxelinux/i386/generic/pxe/20210203.0/syslinux.tar.xz",
+                "product_name": "maas:boot:pxelinux:i386:generic:pxe",
+                "version_name": "20210203.0"
+              }
+            }
+          }
+        }
+      }
+    },
+    "ubuntu": {
+      "amd64": {
+        "ga-16.04": {
+          "generic": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/ga-20.04/focal/20230327/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-20.04:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04",
+                "version_name": "20230327"
+              }
+            },
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/ga-22.04/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-22.04:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04,ga-20.10,ga-21.04,ga-21.10,ga-22.04",
+                "version_name": "20230328"
+              }
+            }
+          },
+          "lowlatency": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/ga-20.04-lowlatency/focal/20230327/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-20.04-lowlatency:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04",
+                "version_name": "20230327"
+              }
+            },
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/ga-22.04-lowlatency/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-22.04-lowlatency:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04,ga-20.10,ga-21.04,ga-21.10,ga-22.04",
+                "version_name": "20230328"
+              }
+            }
+          }
+        },
+        "ga-16.10": {
+          "generic": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/ga-20.04/focal/20230327/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-20.04:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04",
+                "version_name": "20230327"
+              }
+            },
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/ga-22.04/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-22.04:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04,ga-20.10,ga-21.04,ga-21.10,ga-22.04",
+                "version_name": "20230328"
+              }
+            }
+          },
+          "lowlatency": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/ga-20.04-lowlatency/focal/20230327/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-20.04-lowlatency:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04",
+                "version_name": "20230327"
+              }
+            },
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/ga-22.04-lowlatency/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-22.04-lowlatency:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04,ga-20.10,ga-21.04,ga-21.10,ga-22.04",
+                "version_name": "20230328"
+              }
+            }
+          }
+        },
+        "ga-17.04": {
+          "generic": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/ga-20.04/focal/20230327/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-20.04:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04",
+                "version_name": "20230327"
+              }
+            },
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/ga-22.04/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-22.04:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04,ga-20.10,ga-21.04,ga-21.10,ga-22.04",
+                "version_name": "20230328"
+              }
+            }
+          },
+          "lowlatency": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/ga-20.04-lowlatency/focal/20230327/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-20.04-lowlatency:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04",
+                "version_name": "20230327"
+              }
+            },
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/ga-22.04-lowlatency/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-22.04-lowlatency:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04,ga-20.10,ga-21.04,ga-21.10,ga-22.04",
+                "version_name": "20230328"
+              }
+            }
+          }
+        },
+        "ga-17.10": {
+          "generic": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/ga-20.04/focal/20230327/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-20.04:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04",
+                "version_name": "20230327"
+              }
+            },
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/ga-22.04/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-22.04:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04,ga-20.10,ga-21.04,ga-21.10,ga-22.04",
+                "version_name": "20230328"
+              }
+            }
+          },
+          "lowlatency": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/ga-20.04-lowlatency/focal/20230327/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-20.04-lowlatency:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04",
+                "version_name": "20230327"
+              }
+            },
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/ga-22.04-lowlatency/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-22.04-lowlatency:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04,ga-20.10,ga-21.04,ga-21.10,ga-22.04",
+                "version_name": "20230328"
+              }
+            }
+          }
+        },
+        "ga-18.04": {
+          "generic": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/ga-20.04/focal/20230327/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-20.04:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04",
+                "version_name": "20230327"
+              }
+            },
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/ga-22.04/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-22.04:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04,ga-20.10,ga-21.04,ga-21.10,ga-22.04",
+                "version_name": "20230328"
+              }
+            }
+          },
+          "lowlatency": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/ga-20.04-lowlatency/focal/20230327/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-20.04-lowlatency:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04",
+                "version_name": "20230327"
+              }
+            },
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/ga-22.04-lowlatency/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-22.04-lowlatency:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04,ga-20.10,ga-21.04,ga-21.10,ga-22.04",
+                "version_name": "20230328"
+              }
+            }
+          }
+        },
+        "ga-18.10": {
+          "generic": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/ga-20.04/focal/20230327/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-20.04:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04",
+                "version_name": "20230327"
+              }
+            },
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/ga-22.04/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-22.04:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04,ga-20.10,ga-21.04,ga-21.10,ga-22.04",
+                "version_name": "20230328"
+              }
+            }
+          },
+          "lowlatency": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/ga-20.04-lowlatency/focal/20230327/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-20.04-lowlatency:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04",
+                "version_name": "20230327"
+              }
+            },
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/ga-22.04-lowlatency/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-22.04-lowlatency:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04,ga-20.10,ga-21.04,ga-21.10,ga-22.04",
+                "version_name": "20230328"
+              }
+            }
+          }
+        },
+        "ga-19.04": {
+          "generic": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/ga-20.04/focal/20230327/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-20.04:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04",
+                "version_name": "20230327"
+              }
+            },
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/ga-22.04/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-22.04:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04,ga-20.10,ga-21.04,ga-21.10,ga-22.04",
+                "version_name": "20230328"
+              }
+            }
+          },
+          "lowlatency": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/ga-20.04-lowlatency/focal/20230327/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-20.04-lowlatency:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04",
+                "version_name": "20230327"
+              }
+            },
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/ga-22.04-lowlatency/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-22.04-lowlatency:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04,ga-20.10,ga-21.04,ga-21.10,ga-22.04",
+                "version_name": "20230328"
+              }
+            }
+          }
+        },
+        "ga-19.10": {
+          "generic": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/ga-20.04/focal/20230327/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-20.04:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04",
+                "version_name": "20230327"
+              }
+            },
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/ga-22.04/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-22.04:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04,ga-20.10,ga-21.04,ga-21.10,ga-22.04",
+                "version_name": "20230328"
+              }
+            }
+          },
+          "lowlatency": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/ga-20.04-lowlatency/focal/20230327/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-20.04-lowlatency:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04",
+                "version_name": "20230327"
+              }
+            },
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/ga-22.04-lowlatency/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-22.04-lowlatency:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04,ga-20.10,ga-21.04,ga-21.10,ga-22.04",
+                "version_name": "20230328"
+              }
+            }
+          }
+        },
+        "ga-20.04": {
+          "generic": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/ga-20.04/focal/20230327/squashfs",
+                "product_name": "maas:boot:ubuntu:amd64:ga-20.04:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04",
+                "version_name": "20230327"
+              }
+            },
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/ga-22.04/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-22.04:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04,ga-20.10,ga-21.04,ga-21.10,ga-22.04",
+                "version_name": "20230328"
+              }
+            }
+          },
+          "lowlatency": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/ga-20.04-lowlatency/focal/20230327/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-20.04-lowlatency:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04",
+                "version_name": "20230327"
+              }
+            },
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/ga-22.04-lowlatency/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-22.04-lowlatency:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04,ga-20.10,ga-21.04,ga-21.10,ga-22.04",
+                "version_name": "20230328"
+              }
+            }
+          }
+        },
+        "ga-20.04-lowlatency": {
+          "lowlatency": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/ga-20.04-lowlatency/focal/20230327/squashfs",
+                "product_name": "maas:boot:ubuntu:amd64:ga-20.04-lowlatency:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04",
+                "version_name": "20230327"
+              }
+            }
+          }
+        },
+        "ga-20.10": {
+          "generic": {
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/ga-22.04/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-22.04:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04,ga-20.10,ga-21.04,ga-21.10,ga-22.04",
+                "version_name": "20230328"
+              }
+            }
+          },
+          "lowlatency": {
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/ga-22.04-lowlatency/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-22.04-lowlatency:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04,ga-20.10,ga-21.04,ga-21.10,ga-22.04",
+                "version_name": "20230328"
+              }
+            }
+          }
+        },
+        "ga-21.04": {
+          "generic": {
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/ga-22.04/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-22.04:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04,ga-20.10,ga-21.04,ga-21.10,ga-22.04",
+                "version_name": "20230328"
+              }
+            }
+          },
+          "lowlatency": {
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/ga-22.04-lowlatency/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-22.04-lowlatency:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04,ga-20.10,ga-21.04,ga-21.10,ga-22.04",
+                "version_name": "20230328"
+              }
+            }
+          }
+        },
+        "ga-21.10": {
+          "generic": {
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/ga-22.04/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-22.04:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04,ga-20.10,ga-21.04,ga-21.10,ga-22.04",
+                "version_name": "20230328"
+              }
+            }
+          },
+          "lowlatency": {
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/ga-22.04-lowlatency/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-22.04-lowlatency:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04,ga-20.10,ga-21.04,ga-21.10,ga-22.04",
+                "version_name": "20230328"
+              }
+            }
+          }
+        },
+        "ga-22.04": {
+          "generic": {
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/ga-22.04/jammy/20230328/squashfs",
+                "product_name": "maas:boot:ubuntu:amd64:ga-22.04:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04,ga-20.10,ga-21.04,ga-21.10,ga-22.04",
+                "version_name": "20230328"
+              }
+            }
+          },
+          "lowlatency": {
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/ga-22.04-lowlatency/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-22.04-lowlatency:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04,ga-20.10,ga-21.04,ga-21.10,ga-22.04",
+                "version_name": "20230328"
+              }
+            }
+          }
+        },
+        "ga-22.04-lowlatency": {
+          "lowlatency": {
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/ga-22.04-lowlatency/jammy/20230328/squashfs",
+                "product_name": "maas:boot:ubuntu:amd64:ga-22.04-lowlatency:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04,ga-20.10,ga-21.04,ga-21.10,ga-22.04",
+                "version_name": "20230328"
+              }
+            }
+          }
+        },
+        "generic": {
+          "generic": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/ga-20.04/focal/20230327/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-20.04:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04",
+                "version_name": "20230327"
+              }
+            },
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/ga-22.04/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-22.04:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04,ga-20.10,ga-21.04,ga-21.10,ga-22.04",
+                "version_name": "20230328"
+              }
+            }
+          },
+          "lowlatency": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/ga-20.04-lowlatency/focal/20230327/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-20.04-lowlatency:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04",
+                "version_name": "20230327"
+              }
+            },
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/ga-22.04-lowlatency/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-22.04-lowlatency:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04,ga-20.10,ga-21.04,ga-21.10,ga-22.04",
+                "version_name": "20230328"
+              }
+            }
+          }
+        },
+        "hwe-18.10": {
+          "generic": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/hwe-20.04-edge/focal/20230327/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:hwe-20.04-edge:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,hwe-18.10,hwe-19.04,hwe-19.10,hwe-20.04",
+                "version_name": "20230327"
+              }
+            },
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/hwe-22.04-edge/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:hwe-22.04-edge:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,hwe-18.10,hwe-19.04,hwe-19.10,hwe-20.04,hwe-22.04",
+                "version_name": "20230328"
+              }
+            }
+          },
+          "lowlatency": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/hwe-20.04-lowlatency-edge/focal/20230327/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:hwe-20.04-lowlatency-edge:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,hwe-18.10,hwe-19.04,hwe-19.10,hwe-20.04",
+                "version_name": "20230327"
+              }
+            },
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/hwe-22.04-lowlatency-edge/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:hwe-22.04-lowlatency-edge:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,hwe-18.10,hwe-19.04,hwe-19.10,hwe-20.04,hwe-22.04",
+                "version_name": "20230328"
+              }
+            }
+          }
+        },
+        "hwe-19.04": {
+          "generic": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/hwe-20.04-edge/focal/20230327/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:hwe-20.04-edge:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,hwe-18.10,hwe-19.04,hwe-19.10,hwe-20.04",
+                "version_name": "20230327"
+              }
+            },
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/hwe-22.04-edge/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:hwe-22.04-edge:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,hwe-18.10,hwe-19.04,hwe-19.10,hwe-20.04,hwe-22.04",
+                "version_name": "20230328"
+              }
+            }
+          },
+          "lowlatency": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/hwe-20.04-lowlatency-edge/focal/20230327/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:hwe-20.04-lowlatency-edge:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,hwe-18.10,hwe-19.04,hwe-19.10,hwe-20.04",
+                "version_name": "20230327"
+              }
+            },
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/hwe-22.04-lowlatency-edge/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:hwe-22.04-lowlatency-edge:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,hwe-18.10,hwe-19.04,hwe-19.10,hwe-20.04,hwe-22.04",
+                "version_name": "20230328"
+              }
+            }
+          }
+        },
+        "hwe-19.10": {
+          "generic": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/hwe-20.04-edge/focal/20230327/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:hwe-20.04-edge:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,hwe-18.10,hwe-19.04,hwe-19.10,hwe-20.04",
+                "version_name": "20230327"
+              }
+            },
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/hwe-22.04-edge/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:hwe-22.04-edge:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,hwe-18.10,hwe-19.04,hwe-19.10,hwe-20.04,hwe-22.04",
+                "version_name": "20230328"
+              }
+            }
+          },
+          "lowlatency": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/hwe-20.04-lowlatency-edge/focal/20230327/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:hwe-20.04-lowlatency-edge:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,hwe-18.10,hwe-19.04,hwe-19.10,hwe-20.04",
+                "version_name": "20230327"
+              }
+            },
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/hwe-22.04-lowlatency-edge/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:hwe-22.04-lowlatency-edge:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,hwe-18.10,hwe-19.04,hwe-19.10,hwe-20.04,hwe-22.04",
+                "version_name": "20230328"
+              }
+            }
+          }
+        },
+        "hwe-20.04": {
+          "generic": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/hwe-20.04/focal/20230327/squashfs",
+                "product_name": "maas:boot:ubuntu:amd64:hwe-20.04:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04",
+                "version_name": "20230327"
+              }
+            },
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/hwe-22.04-edge/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:hwe-22.04-edge:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,hwe-18.10,hwe-19.04,hwe-19.10,hwe-20.04,hwe-22.04",
+                "version_name": "20230328"
+              }
+            }
+          },
+          "lowlatency": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/hwe-20.04-lowlatency-edge/focal/20230327/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:hwe-20.04-lowlatency-edge:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,hwe-18.10,hwe-19.04,hwe-19.10,hwe-20.04",
+                "version_name": "20230327"
+              }
+            },
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/hwe-22.04-lowlatency-edge/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:hwe-22.04-lowlatency-edge:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,hwe-18.10,hwe-19.04,hwe-19.10,hwe-20.04,hwe-22.04",
+                "version_name": "20230328"
+              }
+            }
+          }
+        },
+        "hwe-20.04-edge": {
+          "generic": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/hwe-20.04-edge/focal/20230327/squashfs",
+                "product_name": "maas:boot:ubuntu:amd64:hwe-20.04-edge:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,hwe-18.10,hwe-19.04,hwe-19.10,hwe-20.04",
+                "version_name": "20230327"
+              }
+            }
+          }
+        },
+        "hwe-20.04-lowlatency": {
+          "lowlatency": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/hwe-20.04-lowlatency/focal/20230327/squashfs",
+                "product_name": "maas:boot:ubuntu:amd64:hwe-20.04-lowlatency:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04",
+                "version_name": "20230327"
+              }
+            }
+          }
+        },
+        "hwe-20.04-lowlatency-edge": {
+          "lowlatency": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/hwe-20.04-lowlatency-edge/focal/20230327/squashfs",
+                "product_name": "maas:boot:ubuntu:amd64:hwe-20.04-lowlatency-edge:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,hwe-18.10,hwe-19.04,hwe-19.10,hwe-20.04",
+                "version_name": "20230327"
+              }
+            }
+          }
+        },
+        "hwe-22.04": {
+          "generic": {
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/hwe-22.04/jammy/20230328/squashfs",
+                "product_name": "maas:boot:ubuntu:amd64:hwe-22.04:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04,ga-20.10,ga-21.04,ga-21.10,ga-22.04",
+                "version_name": "20230328"
+              }
+            }
+          },
+          "lowlatency": {
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/hwe-22.04-lowlatency-edge/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:hwe-22.04-lowlatency-edge:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,hwe-18.10,hwe-19.04,hwe-19.10,hwe-20.04,hwe-22.04",
+                "version_name": "20230328"
+              }
+            }
+          }
+        },
+        "hwe-22.04-edge": {
+          "generic": {
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/hwe-22.04-edge/jammy/20230328/squashfs",
+                "product_name": "maas:boot:ubuntu:amd64:hwe-22.04-edge:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,hwe-18.10,hwe-19.04,hwe-19.10,hwe-20.04,hwe-22.04",
+                "version_name": "20230328"
+              }
+            }
+          }
+        },
+        "hwe-22.04-lowlatency": {
+          "lowlatency": {
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/hwe-22.04-lowlatency/jammy/20230328/squashfs",
+                "product_name": "maas:boot:ubuntu:amd64:hwe-22.04-lowlatency:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04,ga-20.10,ga-21.04,ga-21.10,ga-22.04",
+                "version_name": "20230328"
+              }
+            }
+          }
+        },
+        "hwe-22.04-lowlatency-edge": {
+          "lowlatency": {
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/hwe-22.04-lowlatency-edge/jammy/20230328/squashfs",
+                "product_name": "maas:boot:ubuntu:amd64:hwe-22.04-lowlatency-edge:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,hwe-18.10,hwe-19.04,hwe-19.10,hwe-20.04,hwe-22.04",
+                "version_name": "20230328"
+              }
+            }
+          }
+        },
+        "hwe-p": {
+          "generic": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/ga-20.04/focal/20230327/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-20.04:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04",
+                "version_name": "20230327"
+              }
+            },
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/ga-22.04/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-22.04:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04,ga-20.10,ga-21.04,ga-21.10,ga-22.04",
+                "version_name": "20230328"
+              }
+            }
+          },
+          "lowlatency": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/ga-20.04-lowlatency/focal/20230327/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-20.04-lowlatency:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04",
+                "version_name": "20230327"
+              }
+            },
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/ga-22.04-lowlatency/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-22.04-lowlatency:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04,ga-20.10,ga-21.04,ga-21.10,ga-22.04",
+                "version_name": "20230328"
+              }
+            }
+          }
+        },
+        "hwe-q": {
+          "generic": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/ga-20.04/focal/20230327/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-20.04:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04",
+                "version_name": "20230327"
+              }
+            },
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/ga-22.04/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-22.04:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04,ga-20.10,ga-21.04,ga-21.10,ga-22.04",
+                "version_name": "20230328"
+              }
+            }
+          },
+          "lowlatency": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/ga-20.04-lowlatency/focal/20230327/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-20.04-lowlatency:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04",
+                "version_name": "20230327"
+              }
+            },
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/ga-22.04-lowlatency/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-22.04-lowlatency:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04,ga-20.10,ga-21.04,ga-21.10,ga-22.04",
+                "version_name": "20230328"
+              }
+            }
+          }
+        },
+        "hwe-r": {
+          "generic": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/ga-20.04/focal/20230327/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-20.04:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04",
+                "version_name": "20230327"
+              }
+            },
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/ga-22.04/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-22.04:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04,ga-20.10,ga-21.04,ga-21.10,ga-22.04",
+                "version_name": "20230328"
+              }
+            }
+          },
+          "lowlatency": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/ga-20.04-lowlatency/focal/20230327/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-20.04-lowlatency:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04",
+                "version_name": "20230327"
+              }
+            },
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/ga-22.04-lowlatency/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-22.04-lowlatency:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04,ga-20.10,ga-21.04,ga-21.10,ga-22.04",
+                "version_name": "20230328"
+              }
+            }
+          }
+        },
+        "hwe-s": {
+          "generic": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/ga-20.04/focal/20230327/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-20.04:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04",
+                "version_name": "20230327"
+              }
+            },
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/ga-22.04/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-22.04:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04,ga-20.10,ga-21.04,ga-21.10,ga-22.04",
+                "version_name": "20230328"
+              }
+            }
+          },
+          "lowlatency": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/ga-20.04-lowlatency/focal/20230327/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-20.04-lowlatency:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04",
+                "version_name": "20230327"
+              }
+            },
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/ga-22.04-lowlatency/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-22.04-lowlatency:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04,ga-20.10,ga-21.04,ga-21.10,ga-22.04",
+                "version_name": "20230328"
+              }
+            }
+          }
+        },
+        "hwe-t": {
+          "generic": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/ga-20.04/focal/20230327/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-20.04:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04",
+                "version_name": "20230327"
+              }
+            },
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/ga-22.04/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-22.04:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04,ga-20.10,ga-21.04,ga-21.10,ga-22.04",
+                "version_name": "20230328"
+              }
+            }
+          },
+          "lowlatency": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/ga-20.04-lowlatency/focal/20230327/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-20.04-lowlatency:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04",
+                "version_name": "20230327"
+              }
+            },
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/ga-22.04-lowlatency/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-22.04-lowlatency:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04,ga-20.10,ga-21.04,ga-21.10,ga-22.04",
+                "version_name": "20230328"
+              }
+            }
+          }
+        },
+        "hwe-u": {
+          "generic": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/ga-20.04/focal/20230327/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-20.04:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04",
+                "version_name": "20230327"
+              }
+            },
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/ga-22.04/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-22.04:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04,ga-20.10,ga-21.04,ga-21.10,ga-22.04",
+                "version_name": "20230328"
+              }
+            }
+          },
+          "lowlatency": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/ga-20.04-lowlatency/focal/20230327/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-20.04-lowlatency:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04",
+                "version_name": "20230327"
+              }
+            },
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/ga-22.04-lowlatency/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-22.04-lowlatency:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04,ga-20.10,ga-21.04,ga-21.10,ga-22.04",
+                "version_name": "20230328"
+              }
+            }
+          }
+        },
+        "hwe-v": {
+          "generic": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/ga-20.04/focal/20230327/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-20.04:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04",
+                "version_name": "20230327"
+              }
+            },
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/ga-22.04/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-22.04:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04,ga-20.10,ga-21.04,ga-21.10,ga-22.04",
+                "version_name": "20230328"
+              }
+            }
+          },
+          "lowlatency": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/ga-20.04-lowlatency/focal/20230327/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-20.04-lowlatency:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04",
+                "version_name": "20230327"
+              }
+            },
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/ga-22.04-lowlatency/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-22.04-lowlatency:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04,ga-20.10,ga-21.04,ga-21.10,ga-22.04",
+                "version_name": "20230328"
+              }
+            }
+          }
+        },
+        "hwe-w": {
+          "generic": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/ga-20.04/focal/20230327/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-20.04:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04",
+                "version_name": "20230327"
+              }
+            },
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "generic",
+                "path": "ubuntu/amd64/ga-22.04/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-22.04:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04,ga-20.10,ga-21.04,ga-21.10,ga-22.04",
+                "version_name": "20230328"
+              }
+            }
+          },
+          "lowlatency": {
+            "focal": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/ga-20.04-lowlatency/focal/20230327/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-20.04-lowlatency:focal",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04",
+                "version_name": "20230327"
+              }
+            },
+            "jammy": {
+              "stable": {
+                "content_id": "maas:v2:download",
+                "kflavor": "lowlatency",
+                "path": "ubuntu/amd64/ga-22.04-lowlatency/jammy/20230328/boot-initrd",
+                "product_name": "maas:boot:ubuntu:amd64:ga-22.04-lowlatency:jammy",
+                "subarches": "generic,hwe-p,hwe-q,hwe-r,hwe-s,hwe-t,hwe-u,hwe-v,hwe-w,ga-16.04,ga-16.10,ga-17.04,ga-17.10,ga-18.04,ga-18.10,ga-19.04,ga-19.10,ga-20.04,ga-20.10,ga-21.04,ga-21.10,ga-22.04",
+                "version_name": "20230328"
+              }
+            }
+          }
+        }
+      }
+    }
+  }
+  
