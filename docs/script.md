@@ -6,7 +6,7 @@ apt-get autoremove -y
 apt-add-repository ppa:maas/3.3
 apt update
 apt upgrade -y
-apt-get -y install bridge-utils qemu-kvm libvirt-bin
+apt-get -y install jq bridge-utils qemu-kvm libvirt-bin
 snap refresh
 snap install --channel=latest/stable lxd
 snap refresh --channel=latest/stable lxd
