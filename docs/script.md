@@ -25,6 +25,19 @@ apt-get -y install maas
 ```
 
 ```bash
+export IP_ADDRESS=$(ip -j route show default | jq -r '.[].prefsrc')
+export INTERFACE=$(ip -j route show default | jq -r '.[].dev')
+sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/' /etc/sysctl.conf
+sysctl -p
+iptables -t nat -A POSTROUTING -o $INTERFACE -j SNAT --to $IP_ADDRESS
+echo iptables-persistent iptables-persistent/autosave_v4 boolean true | sudo debconf-set-selections
+echo iptables-persistent iptables-persistent/autosave_v6 boolean true | sudo debconf-set-selections
+apt-get install iptables-persistent -y
+cat lxd.cfg | lxd init --preseed
+lxd waitready
+```
+
+```bash
 wget -qO- https://raw.githubusercontent.com/canonical/maas-multipass/main/maas.yml \
  | multipass launch --name maas -c4 -m8GB -d32GB --cloud-init -
 ```
