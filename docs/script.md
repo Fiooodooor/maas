@@ -3,7 +3,7 @@ sudo su
 apt-get update
 apt-get purge -y *lxd* *lxc*
 apt-get autoremove -y
-apt-add-repository ppa:maas/3.3
+apt-add-repository -y ppa:maas/3.3
 apt update
 apt upgrade -y
 apt-get -y install jq bridge-utils qemu-kvm libvirt-bin
@@ -25,7 +25,7 @@ wget -qO- https://raw.githubusercontent.com/canonical/maas-multipass/main/maas.y
 write_files:
 - content: |
     config:
-      core.https_address: '[::]:8443'
+      core.https_address: '[::]:30005'
       core.trust_password: password
     networks:
     - config:
