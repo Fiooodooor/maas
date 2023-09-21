@@ -12,7 +12,7 @@ Reboot the machine and run:
 
 ```bash
 apt update
-apt-get -y install jq cpu-checker bridge-utils qemu-kvm qemu maas \
+apt-get -y install jq cpu-checker bridge-utils qemu-kvm qemu \
      libvirt0 libvirt-clients libvirt-daemon-driver-lxc libvirt-daemon libvirt-daemon-system libvirt-dev
 snap refresh
 snap install --channel=latest/stable lxd
@@ -21,6 +21,7 @@ snap set lxd ui.enable=true
 snap restart --reload lxd
 lxc config set core.https_address :30005
 snap install maas-test-db
+apt-get -y install maas
 ```
 
 ```bash
