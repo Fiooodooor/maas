@@ -16,9 +16,12 @@ lxc config set core.https_address :30005
 snap install maas-test-db
 ```
 
+```bash
 wget -qO- https://raw.githubusercontent.com/canonical/maas-multipass/main/maas.yml \
  | multipass launch --name maas -c4 -m8GB -d32GB --cloud-init -
- 
+```
+
+```yaml
 write_files:
 - content: |
     config:
@@ -108,13 +111,16 @@ runcmd:
 #- echo "Waiting for images to be synced to MAAS ..."
 #- export status="downloading"
 #- while [ "$status" != "synced" ]; do export status=$(maas admin rack-controller list-boot-images $PRIMARY_RACK | jq -r .status); sleep 1; done
+```
 
-
+```bash
 sudo apt-add-repository ppa:maas/3.3
 sudo apt update
 sudo apt-get -y install maas
 sudo systemctl disable --now systemd-timesyncd
+```
 
+```bash
 KVM install:
 sudo apt-add-repository ppa:maas/3.3
 sudo apt update
@@ -122,7 +128,7 @@ sudo apt upgrade -y
 sudo apt-get -y install bridge-utils qemu-kvm libvirt-bin
 
 sudo apt -y install bridge-utils cpu-checker libvirt-clients libvirt-daemon qemu qemu-kvm libvirt-daemon-system
-
+```
 
 ### Why use LXD on Ubuntu 22.04 LTS?
 
