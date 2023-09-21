@@ -11,6 +11,7 @@ apt upgrade -y
 Reboot the machine and run:
 
 ```bash
+apt update
 apt-get -y install jq cpu-checker bridge-utils qemu-kvm qemu maas \
      libvirt0 libvirt-clients libvirt-daemon-driver-lxc libvirt-daemon libvirt-daemon-system libvirt-dev
 snap refresh
