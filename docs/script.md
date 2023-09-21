@@ -6,7 +6,13 @@ apt-get autoremove -y
 apt-add-repository -y ppa:maas/3.3
 apt update
 apt upgrade -y
-apt-get -y install jq bridge-utils qemu-kvm libvirt-bin
+```
+
+Reboot the machine and run:
+
+```bash
+apt-get -y install jq cpu-checker bridge-utils qemu-kvm qemu maas \
+     libvirt0 libvirt-clients libvirt-daemon-driver-lxc libvirt-daemon libvirt-daemon-system libvirt-dev
 snap refresh
 snap install --channel=latest/stable lxd
 snap refresh --channel=latest/stable lxd
