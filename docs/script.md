@@ -25,8 +25,10 @@ apt-get -y install maas
 ```
 
 ```bash
-export IP_ADDRESS=$(ip -j route show default | jq -r '.[].prefsrc')
-export INTERFACE=$(ip -j route show default | jq -r '.[].dev')
+ip -j addr show ${INTERFACE[0]} | jq -r '.[].addr_info[] | select(.family == "inet") | .local'
+export INTERFACE=($(ip -j route show default | jq -r '.[].dev'))
+export IP_ADDRESS=($(ip -j route show default | jq -r '.[].prefsrc'))
+[[ "${IP_ADDRESS[0]}" = "null" ]] && export IP_ADDRESS=$(ip -j addr show ${INTERFACE[0]} | jq -r '.[].addr_info[] | select(.family == "inet") | .local')
 sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/' /etc/sysctl.conf
 sysctl -p
 iptables -t nat -A POSTROUTING -o $INTERFACE -j SNAT --to $IP_ADDRESS
