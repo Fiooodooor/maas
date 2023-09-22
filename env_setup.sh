@@ -25,7 +25,7 @@ function check_upgrade_apt_packages()
     sudo apt update
     sudo apt upgrade -y
     sudo apt satisfy -y "python3 (>=3.9), python3-dev (>= 3.9), python3-pip"
-    sudo apt install -y libevent-dev openssh-server
+    sudo apt install -y libevent-dev openssh-server software-properties-common ca-certificates apt-transport-https
 }
 
 function check_add_userspace_bin_path()
