@@ -47,8 +47,8 @@ lxd waitready
 MAAS keys generate and add to admin:
 
 ```bash
-ssh-keygen -t ed25519 -b 4096 -f /root/.ssh/ssh_maas_root_ed25519 -N ''
-ssh-keygen -t ed25519 -b 4096 -f /home/ubuntu/.ssh/ssh_maas_ubuntu_ed25519 -N ''
+ssh-keygen -t ed25519 -b 4096 -f /root/.ssh/ssh_maas_root_ed25519 -N '' -C 'ssh_root@maas_regiond'
+ssh-keygen -t ed25519 -b 4096 -f /home/ubuntu/.ssh/ssh_maas_ubuntu_ed25519 -N '' -C 'ssh_ubuntu@maas_regiond'
 chown ubuntu:ubuntu /home/ubuntu/.ssh/ssh_maas_ubuntu_ed25519 /home/ubuntu/.ssh/ssh_maas_ubuntu_ed25519.pub
 chmod 600 /root/.ssh/ssh_maas_root_ed25519 /home/ubuntu/.ssh/ssh_maas_ubuntu_ed25519
 chmod 644 /root/.ssh/ssh_maas_root_ed25519.pub /home/ubuntu/.ssh/ssh_maas_ubuntu_ed25519.pub
