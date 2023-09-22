@@ -40,6 +40,10 @@ iptables -t nat -A POSTROUTING -o $INTERFACE -j SNAT --to $IP_ADDRESS
 echo iptables-persistent iptables-persistent/autosave_v4 boolean true | sudo debconf-set-selections
 echo iptables-persistent iptables-persistent/autosave_v6 boolean true | sudo debconf-set-selections
 apt-get install iptables-persistent -y
+
+adduser "ubuntu" lxd
+adduser root lxd
+newgrp lxd
 ```
 
 LXD setup init:
@@ -52,6 +56,7 @@ config:
 networks:
 - config:
     ipv4.address: ${LXD_BRG_IP_ADDR}
+    ipv4.nat: true
     ipv6.address: none
   description: "Basic LXD bridge configuration"
   name: lxdbr0
