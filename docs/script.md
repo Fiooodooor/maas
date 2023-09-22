@@ -11,17 +11,19 @@ apt upgrade -y
 Reboot the machine and run:
 
 ```bash
-export LXD_HTTPS_PORT=30005
-export LXD_BRG_SUBNET=10.10.100.0/24
-export LXD_BRG_IP_ADDR=10.10.100.1
-export LXD_BRG_IP_START=10.10.100.200
-export LXD_BRG_IP_END=10.10.100.254
+export LXD_HTTPS_PORT='30005'
+export LXD_BRG_IFACE='ens801f1np1'
+export LXD_BRG_SUBNET='10.10.100.0/24'
+export LXD_BRG_IP_ADDR='10.10.100.1/24'
+export LXD_BRG_IP_START='10.10.100.200'
+export LXD_BRG_IP_END='10.10.100.254'
 export MAAS_HTTPS_PORT=30006
 export INTERFACE=($(ip -j route show default | jq -r '.[].dev'))
 export IP_ADDRESS=($(ip -j route show default | jq -r '.[].prefsrc'))
 [[ "${IP_ADDRESS[0]}" = "null" ]] && export IP_ADDRESS=$(ip -j addr show ${INTERFACE[0]} | jq -r '.[].addr_info[] | select(.family == "inet") | .local')
 
-apt update
+apt-add-repository -y ppa:maas/3.3
+apt-get update
 apt-get -y install jq cpu-checker bridge-utils qemu-kvm qemu \
      libvirt0 libvirt-clients libvirt-daemon-driver-lxc libvirt-daemon libvirt-daemon-system libvirt-dev
 snap refresh
