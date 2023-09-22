@@ -44,6 +44,23 @@ cat lxd.cfg | lxd init --preseed
 lxd waitready
 ```
 
+Intel specific settings
+
+```bash
+# Set Intel-IT Ubuntu mirrors as primary repository
+UBUNTU_MAIN_ARCHIVE=$(maas admin package-repositories read | jq '.[] | select(.name=="main_archive") | .id')
+maas admin package-repository update "${UBUNTU_MAIN_ARCHIVE}" disable_sources=false enabled=true url=http://linux-ftp.fi.intel.com/pub/mirrors/ubuntu
+
+# Enable and configure upstream DNS server
+maas admin maas set-config name=upstream_dns value="10.248.2.1 10.125.145.36 1.1.1.1"
+maas admin maas set-config name=dnssec_validation value="no"
+
+# Enable HTTP proxy for use in MAAS
+maas admin maas set-config name=enable_http_proxy value=true
+maas admin maas set-config name=prefer_v4_proxy value=true
+maas admin maas set-config name=http_proxy value=http://proxy-mu.intel.com:911/
+```
+
 MAAS keys generate and add to admin:
 
 ```bash
