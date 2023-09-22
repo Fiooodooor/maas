@@ -40,7 +40,47 @@ iptables -t nat -A POSTROUTING -o $INTERFACE -j SNAT --to $IP_ADDRESS
 echo iptables-persistent iptables-persistent/autosave_v4 boolean true | sudo debconf-set-selections
 echo iptables-persistent iptables-persistent/autosave_v6 boolean true | sudo debconf-set-selections
 apt-get install iptables-persistent -y
-cat lxd.cfg | lxd init --preseed
+```
+
+LXD setup init:
+
+```bash
+( cat <<EOF
+config:
+  core.https_address: '[::]:${LXD_HTTPS_PORT}'
+  core.trust_password: password
+networks:
+- config:
+    ipv4.address: ${LXD_BRG_IP_ADDR}
+    ipv6.address: none
+  description: "Basic LXD bridge configuration"
+  name: lxdbr0
+  type: ""
+  project: default
+storage_pools:
+- config:
+    size: 6000GB
+  description: ""
+  name: default
+  driver: zfs
+profiles:
+- config: {}
+  description: ""
+  devices:
+    ${LXD_BRG_IFACE}:
+      name: ${LXD_BRG_IFACE}
+      network: lxdbr0
+      type: nic
+    root:
+      path: /
+      pool: default
+      type: disk
+  name: default
+projects: []
+cluster: null
+EOF
+) > /tmp/lxd.cfg
+cat /tmp/lxd.cfg | lxd init --preseed
 lxd waitready
 ```
 
