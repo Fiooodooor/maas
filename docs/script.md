@@ -25,7 +25,12 @@ apt-get -y install maas
 ```
 
 ```bash
-ip -j addr show ${INTERFACE[0]} | jq -r '.[].addr_info[] | select(.family == "inet") | .local'
+export LXD_HTTPS_PORT=30005
+export LXD_BRG_SUBNET=10.10.100.0/24
+export LXD_BRG_IP_ADDR=10.10.100.1
+export LXD_BRG_IP_START=10.10.100.200
+export LXD_BRG_IP_END=10.10.100.254
+export MAAS_HTTPS_PORT=30006
 export INTERFACE=($(ip -j route show default | jq -r '.[].dev'))
 export IP_ADDRESS=($(ip -j route show default | jq -r '.[].prefsrc'))
 [[ "${IP_ADDRESS[0]}" = "null" ]] && export IP_ADDRESS=$(ip -j addr show ${INTERFACE[0]} | jq -r '.[].addr_info[] | select(.family == "inet") | .local')
@@ -38,6 +43,19 @@ apt-get install iptables-persistent -y
 cat lxd.cfg | lxd init --preseed
 lxd waitready
 ```
+
+MAAS keys generate and add to admin:
+
+```bash
+ssh-keygen -t ed25519 -b 4096 -f /root/.ssh/ssh_maas_root_ed25519 -N ''
+ssh-keygen -t ed25519 -b 4096 -f /home/ubuntu/.ssh/ssh_maas_ubuntu_ed25519 -N ''
+chown ubuntu:ubuntu /home/ubuntu/.ssh/ssh_maas_ubuntu_ed25519 /home/ubuntu/.ssh/ssh_maas_ubuntu_ed25519.pub
+chmod 600 /root/.ssh/ssh_maas_root_ed25519 /home/ubuntu/.ssh/ssh_maas_ubuntu_ed25519
+chmod 644 /root/.ssh/ssh_maas_root_ed25519.pub /home/ubuntu/.ssh/ssh_maas_ubuntu_ed25519.pub
+maas admin sshkeys create key="$(cat /root/.ssh/ssh_maas_regiond_ed25519.pub)"
+maas admin sshkeys create key="$(cat /home/ubuntu/.ssh/ssh_maas_ubuntu_ed25519.pub)"
+```
+
 
 ```bash
 wget -qO- https://raw.githubusercontent.com/canonical/maas-multipass/main/maas.yml \
@@ -94,6 +112,12 @@ runcmd:
 # Fetch IPv4 address from the device, setup forwarding and NAT
 - export IP_ADDRESS=$(ip -j route show default | jq -r '.[].prefsrc')
 - export INTERFACE=$(ip -j route show default | jq -r '.[].dev')
+- export MAAS_HTTPS_PORT=30006
+- export LXD_HTTPS_PORT=30005
+- export LXD_BRG_SUBNET=10.10.100.0/24
+- export LXD_BRG_IP_ADDR=10.10.100.1
+- export LXD_BRG_IP_START=10.10.100.200
+- export LXD_BRG_IP_END=10.10.100.254
 - sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/' /etc/sysctl.conf
 - sysctl -p
 - iptables -t nat -A POSTROUTING -o $INTERFACE -j SNAT --to $IP_ADDRESS
@@ -106,30 +130,31 @@ runcmd:
 # Wait for LXD to be ready
 - lxd waitready
 # Initialise MAAS
-- maas init region+rack --database-uri maas-test-db:/// --maas-url http://${IP_ADDRESS}:5240/MAAS
+- maas init region+rack --database-uri maas-test-db:/// --maas-url http://${IP_ADDRESS}:${MAAS_HTTPS_PORT}/MAAS
 - sleep 15
 # Create MAAS admin and grab API key
 - maas createadmin --username admin --password admin --email admin
 - export APIKEY=$(maas apikey --username admin)
 # MAAS admin login
-- maas login admin 'http://localhost:5240/MAAS/' $APIKEY
+- maas login admin "http://localhost:${MAAS_HTTPS_PORT}/MAAS/" $APIKEY
 # Configure MAAS networking (set gateways, vlans, DHCP on etc)
-- export SUBNET=10.10.10.0/24
-- export FABRIC_ID=$(maas admin subnet read "$SUBNET" | jq -r ".vlan.fabric_id")
-- export VLAN_TAG=$(maas admin subnet read "$SUBNET" | jq -r ".vlan.vid")
+- export FABRIC_ID=$(maas admin subnet read "${LXD_BRG_SUBNET}" | jq -r ".vlan.fabric_id")
+- export VLAN_TAG=$(maas admin subnet read "${LXD_BRG_SUBNET}" | jq -r ".vlan.vid")
 - export PRIMARY_RACK=$(maas admin rack-controllers read | jq -r ".[] | .system_id")
-- maas admin subnet update $SUBNET gateway_ip=10.10.10.1
-- maas admin ipranges create type=dynamic start_ip=10.10.10.200 end_ip=10.10.10.254
+- maas admin subnet update ${LXD_BRG_SUBNET} gateway_ip=${LXD_BRG_IP_ADDR}
+- maas admin ipranges create type=dynamic start_ip=${LXD_BRG_IP_START} end_ip=${LXD_BRG_IP_END}
 - maas admin vlan update $FABRIC_ID $VLAN_TAG dhcp_on=True primary_rack=$PRIMARY_RACK
 - maas admin maas set-config name=upstream_dns value=8.8.8.8
 # Add LXD as a VM host for MAAS
-- maas admin vm-hosts create  password=password  type=lxd power_address=https://${IP_ADDRESS}:8443 project=maas
+- maas admin vm-hosts create  password=password  type=lxd power_address=https://${IP_ADDRESS}:${LXD_HTTPS_PORT} project=maas
 # Automatically create and add ssh keys to MAAS
-- ssh-keygen -q -t rsa -N "" -f "/home/ubuntu/.ssh/id_rsa"
-- chown ubuntu:ubuntu /home/ubuntu/.ssh/id_rsa /home/ubuntu/.ssh/id_rsa.pub
-- chmod 600 /home/ubuntu/.ssh/id_rsa
-- chmod 644 /home/ubuntu/.ssh/id_rsa.pub
-- maas admin sshkeys create key="$(cat /home/ubuntu/.ssh/id_rsa.pub)"
+- ssh-keygen -t ed25519 -b 4096 -f /root/.ssh/ssh_maas_root_ed25519 -N ''
+- ssh-keygen -t ed25519 -b 4096 -f /home/ubuntu/.ssh/ssh_maas_ubuntu_ed25519 -N ''
+- chown ubuntu:ubuntu /home/ubuntu/.ssh/ssh_maas_ubuntu_ed25519 /home/ubuntu/.ssh/ssh_maas_ubuntu_ed25519.pub
+- chmod 600 /root/.ssh/ssh_maas_root_ed25519 /home/ubuntu/.ssh/ssh_maas_ubuntu_ed25519
+- chmod 644 /root/.ssh/ssh_maas_root_ed25519.pub /home/ubuntu/.ssh/ssh_maas_ubuntu_ed25519.pub
+- maas admin sshkeys create key="$(cat /root/.ssh/ssh_maas_regiond_ed25519.pub)"
+- maas admin sshkeys create key="$(cat /home/ubuntu/.ssh/ssh_maas_ubuntu_ed25519.pub)"
 # Wait for images to be synced to MAAS
 #- echo "Waiting for images to be synced to MAAS ..."
 #- export status="downloading"
