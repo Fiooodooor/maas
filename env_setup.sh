@@ -4,13 +4,11 @@ set -ex
 
 SCRIPT_DIRECTORY="$(readlink -f "$(dirname "${BASH_SOURCE[0]}")")"
 
-DEBIAN_FRONTEND=noninteractive
-LC_ALL='C.UTF-8'
-TZ='Europe/Warsaw'
-echo "${TZ}" > /etc/timezone
-
+export DEBIAN_FRONTEND=noninteractive
+export LC_ALL='C.UTF-8'
+export TZ='Europe/Warsaw'
+sudo bash -c "echo "${TZ}" > /etc/timezone"
 # /bin/sh -c ln -snf /usr/share/zoneinfo/${TZ} /etc/localtime;
-# echo ${TZ} > /etc/timezone
 
 function check_is_sudo_or_exit() 
 {
