@@ -11,20 +11,6 @@ apt upgrade -y
 Reboot the machine and run:
 
 ```bash
-apt update
-apt-get -y install jq cpu-checker bridge-utils qemu-kvm qemu \
-     libvirt0 libvirt-clients libvirt-daemon-driver-lxc libvirt-daemon libvirt-daemon-system libvirt-dev
-snap refresh
-snap install --channel=latest/stable lxd
-snap refresh --channel=latest/stable lxd
-snap set lxd ui.enable=true
-snap restart --reload lxd
-lxc config set core.https_address :30005
-snap install maas-test-db
-apt-get -y install maas
-```
-
-```bash
 export LXD_HTTPS_PORT=30005
 export LXD_BRG_SUBNET=10.10.100.0/24
 export LXD_BRG_IP_ADDR=10.10.100.1
@@ -34,6 +20,18 @@ export MAAS_HTTPS_PORT=30006
 export INTERFACE=($(ip -j route show default | jq -r '.[].dev'))
 export IP_ADDRESS=($(ip -j route show default | jq -r '.[].prefsrc'))
 [[ "${IP_ADDRESS[0]}" = "null" ]] && export IP_ADDRESS=$(ip -j addr show ${INTERFACE[0]} | jq -r '.[].addr_info[] | select(.family == "inet") | .local')
+
+apt update
+apt-get -y install jq cpu-checker bridge-utils qemu-kvm qemu \
+     libvirt0 libvirt-clients libvirt-daemon-driver-lxc libvirt-daemon libvirt-daemon-system libvirt-dev
+snap refresh
+snap install --channel=latest/stable lxd
+snap set lxd ui.enable=true
+snap restart --reload lxd
+lxc config set core.https_address :30005
+snap install maas-test-db
+apt-get -y install maas
+
 sed -i 's/#net.ipv4.ip_forward=1/net.ipv4.ip_forward=1/' /etc/sysctl.conf
 sysctl -p
 iptables -t nat -A POSTROUTING -o $INTERFACE -j SNAT --to $IP_ADDRESS
@@ -95,7 +93,7 @@ write_files:
       project: default
     storage_pools:
     - config:
-        size: 24GB
+        size: 6000GB
       description: ""
       name: default
       driver: zfs
