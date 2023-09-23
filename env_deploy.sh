@@ -4,21 +4,36 @@ set -ex
 
 SCRIPT_DIRECTORY="$(readlink -f "$(dirname "${BASH_SOURCE[0]}")")"
 
+function install_dependencies()
+{
+    sudo apt-add-repository -y ppa:maas/3.3
+    sudo apt-get update
+    sudo apt-get -y install jq cpu-checker bridge-utils \
+         libevent-dev openssh-server software-properties-common ca-certificates apt-transport-https gnupg
+    sudo snap refresh
+    sudo snap install --channel=latest/stable lxd
+    sudo snap set lxd ui.enable=true
+    sudo snap restart --reload lxd
+    sudo snap install maas-test-db
+    sudo apt-get -y install maas
+}
+
 function initialize_variables()
 {
-export DEBIAN_FRONTEND=noninteractive
-export LXD_HTTPS_PORT='30005'
-export LXD_BRG_IFACE='ens802'
-export LXD_BRG_SUBNET='10.10.100.0/24'
-export LXD_BRG_IP_ADDR='10.10.100.1/24'
-export LXD_BRG_IP_START='10.10.100.200'
-export LXD_BRG_IP_END='10.10.100.254'
-export MAAS_HTTPS_PORT=30006
-export INTERFACE=($(ip -j route show default | jq -r '.[].dev'))
-export IP_ADDRESS=($(ip -j route show default | jq -r '.[].prefsrc'))
-[[ "${IP_ADDRESS[0]}" = "null" ]] && export IP_ADDRESS=$(ip -j addr show ${INTERFACE[0]} | jq -r '.[].addr_info[] | select(.family == "inet") | .local')
+  apt-get install jq
+  export DEBIAN_FRONTEND=noninteractive
+  export LXD_HTTPS_PORT='30005'
+  export LXD_BRG_IFACE='ens802'
+  export LXD_BRG_SUBNET='10.10.100.0/24'
+  export LXD_BRG_IP_ADDR='10.10.100.1/24'
+  export LXD_BRG_IP_START='10.10.100.200'
+  export LXD_BRG_IP_END='10.10.100.254'
+  export MAAS_HTTPS_PORT=30006
+  export INTERFACE=($(ip -j route show default | jq -r '.[].dev'))
+  export IP_ADDRESS=($(ip -j route show default | jq -r '.[].prefsrc'))
+  [[ "${IP_ADDRESS[0]}" = "null" ]] && export IP_ADDRESS=$(ip -j addr show ${INTERFACE[0]} | jq -r '.[].addr_info[] | select(.family == "inet") | .local')
 
-( 
+(
 cat <<EOF
 config:
   core.https_address: '[::]:${LXD_HTTPS_PORT}'
@@ -56,22 +71,6 @@ cluster: null
 EOF
 ) > /tmp/lxd.cfg
 
-}
-
-function install_dependencies()
-{
-    sudo apt-add-repository -y ppa:maas/3.3
-    sudo apt-get update
-    sudo apt-get -y install jq cpu-checker bridge-utils \
-         libevent-dev openssh-server software-properties-common ca-certificates apt-transport-https gnupg \
-         qemu-kvm qemu libvirt0 libvirt-clients libvirt-daemon-driver-lxc libvirt-daemon libvirt-daemon-system libvirt-dev
-    sudo snap refresh
-    sudo snap install --channel=latest/stable lxd
-    sudo snap set lxd ui.enable=true
-    sudo snap restart --reload lxd
-    sudo lxc config set core.https_address :30005
-    sudo snap install maas-test-db
-    sudo apt-get -y install maas
 }
 
 function lxd_basic_initialisation()
@@ -147,10 +146,14 @@ function maas_ssh_keys_configuration()
     maas admin vm-hosts create  password=password  type=lxd power_address=https://${IP_ADDRESS}:${LXD_HTTPS_PORT} project=maas
 }
 
-initialize_variables
-install_dependencies
-lxd_basic_initialisation
-maas_basic_initialisation
-maas_client_login
-maas_basic_configuration
-maas_ssh_keys_configuration
+function run_full_env_deploy()
+{
+  install_dependencies
+  initialize_variables
+  lxd_basic_initialisation
+  maas_basic_initialisation
+  maas_client_login
+  maas_basic_configuration
+  maas_ssh_keys_configuration
+}
+run_full_env_deploy
