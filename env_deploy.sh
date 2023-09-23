@@ -24,11 +24,12 @@ function initialize_variables()
   export DEBIAN_FRONTEND=noninteractive
   export LXD_HTTPS_PORT='30005'
   export LXD_BRG_IFACE='ens802'
-  export LXD_BRG_SUBNET='10.10.100.0/24'
-  export LXD_BRG_IP_ADDR='10.10.100.1/24'
-  export LXD_BRG_IP_START='10.10.100.200'
-  export LXD_BRG_IP_END='10.10.100.254'
-  export MAAS_HTTPS_PORT=30006
+  export LXD_NET_ADDRESS='10.10.100.0'
+  export LXD_NET_NETMASK='24'
+  export LXD_NET_GATEWAY='10.10.100.1'
+  export LXD_NET_IP_START='10.10.100.50'
+  export LXD_NET_IP_END='10.10.100.254'
+  export MAAS_HTTPS_PORT='5240'
   export INTERFACE=($(ip -j route show default | jq -r '.[].dev'))
   export IP_ADDRESS=($(ip -j route show default | jq -r '.[].prefsrc'))
   [[ "${IP_ADDRESS[0]}" = "null" ]] && export IP_ADDRESS=$(ip -j addr show ${INTERFACE[0]} | jq -r '.[].addr_info[] | select(.family == "inet") | .local')
@@ -40,7 +41,7 @@ config:
   core.trust_password: password
 networks:
 - config:
-    ipv4.address: ${LXD_BRG_IP_ADDR}
+    ipv4.address: ${LXD_NET_GATEWAY}/${LXD_NET_NETMASK}
     ipv4.nat: true
     ipv6.address: none
   description: "Basic LXD bridge configuration"
@@ -85,12 +86,16 @@ function lxd_basic_initialisation()
     sudo adduser "ubuntu" lxd || true
     sudo adduser root lxd || true
 
+    # lxc network detach-profile lxdbr0 default
+    # lxc network delete lxdbr0
     cat /tmp/lxd.cfg | lxd init --preseed
     lxd waitready
 }
 
 function maas_basic_initialisation()
 {
+    snap install --channel=3.3/stable maas
+    snap refresh --channel=3.3/stable maas
     # Initialise MAAS
     maas init region+rack --database-uri maas-test-db:/// --maas-url http://${IP_ADDRESS}:${MAAS_HTTPS_PORT}/MAAS
     echo "Waiting for init to finish... "
@@ -110,11 +115,11 @@ function maas_client_login()
 function maas_basic_configuration()
 {
     # Configure MAAS networking (set gateways, vlans, DHCP on etc)
-    export FABRIC_ID=$(maas admin subnet read "${LXD_BRG_SUBNET}" | jq -r ".vlan.fabric_id")
-    export VLAN_TAG=$(maas admin subnet read "${LXD_BRG_SUBNET}" | jq -r ".vlan.vid")
+    export FABRIC_ID=$(maas admin subnet read "${LXD_NET_ADDRESS}/${LXD_NET_NETMASK}" | jq -r ".vlan.fabric_id")
+    export VLAN_TAG=$(maas admin subnet read "${LXD_NET_ADDRESS}/${LXD_NET_NETMASK}" | jq -r ".vlan.vid")
     export PRIMARY_RACK=$(maas admin rack-controllers read | jq -r ".[] | .system_id")
-    maas admin subnet update ${LXD_BRG_SUBNET} gateway_ip=${LXD_BRG_IP_ADDR}
-    maas admin ipranges create type=dynamic start_ip=${LXD_BRG_IP_START} end_ip=${LXD_BRG_IP_END}
+    maas admin subnet update ${LXD_NET_ADDRESS}/${LXD_NET_NETMASK} gateway_ip=${LXD_NET_GATEWAY}
+    maas admin ipranges create type=dynamic start_ip=${LXD_NET_IP_START} end_ip=${LXD_NET_IP_END}
     maas admin vlan update $FABRIC_ID $VLAN_TAG dhcp_on=True primary_rack=$PRIMARY_RACK
 
     # Set Intel-IT Ubuntu mirrors as primary repository
